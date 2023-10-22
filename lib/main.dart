@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
+// import 'package:horizontal_week_calendar/horizontal_week_calendar.dart';
+import 'package:intl/intl.dart';
+import 'calendar.dart';
 
 void main() {
   runApp(const MyApp());
@@ -51,6 +55,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  var selectedDate = DateTime.now();
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called.
@@ -100,79 +105,95 @@ class _MyHomePageState extends State<MyHomePage> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Expanded(
-              flex: 1,
-              child: Text('11',
-                  textAlign: TextAlign.center,
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                    color: Colors.grey.shade600,
-                    fontSize: 19,
-                    fontWeight: FontWeight.w400,
-                  ))),
-          Expanded(
-              flex: 1,
-              child: Text('12',
-                  textAlign: TextAlign.center,
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                    color: Colors.grey.shade600,
-                    fontSize: 19,
-                    fontWeight: FontWeight.w400,
-                  ))),
-          Expanded(
-              flex: 2,
-              child: Container(
-                  width: 80,
-                  height: 40,
-                  decoration: const BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(99)),
-                      color: Color.fromARGB(255, 221, 239, 255),
-                      boxShadow: [
-                        // Bottom right
-                        BoxShadow(
-                            color: Color.fromARGB(47, 0, 0, 0),
-                            blurRadius: 24,
-                            offset: Offset(5, 5),
-                            blurStyle: BlurStyle.normal,
-                            spreadRadius: 1),
-                        // Top left
-                        BoxShadow(
-                            color: Colors.white,
-                            blurRadius: 14,
-                            offset: Offset(-5, -5),
-                            blurStyle: BlurStyle.normal,
-                            spreadRadius: -1)
-                      ]),
-                  child: Align(
-                      alignment: Alignment.center,
-                      child: Text('Sunday, 13',
-                          textAlign: TextAlign.center,
-                          overflow: TextOverflow.ellipsis,
-                          style: TextStyle(
-                            color: Colors.grey.shade600,
-                            fontSize: 19,
-                            fontWeight: FontWeight.w400,
-                          ))))),
-          Expanded(
-              flex: 1,
-              child: Text('14',
-                  textAlign: TextAlign.center,
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                    color: Colors.grey.shade600,
-                    fontSize: 19,
-                    fontWeight: FontWeight.w400,
-                  ))),
-          Expanded(
-              flex: 1,
-              child: Text('15',
-                  textAlign: TextAlign.center,
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                    color: Colors.grey.shade600,
-                    fontSize: 19,
-                    fontWeight: FontWeight.w400,
-                  ))),
+              // child: Text('11',
+              //     textAlign: TextAlign.center,
+              //     overflow: TextOverflow.ellipsis,
+              //     style: TextStyle(
+              //       color: Colors.grey.shade600,
+              //       fontSize: 19,
+              //       fontWeight: FontWeight.w400,
+              //     ))),
+              child: HorizontalWeekCalendar(
+            weekStartFrom: WeekStartFrom.Monday,
+            activeBackgroundColor: Color.fromARGB(255, 221, 239, 255),
+            activeTextColor: Colors.grey.shade600,
+            inactiveBackgroundColor: Color.fromARGB(255, 221, 239, 255),
+            inactiveTextColor: Colors.grey.shade600,
+            disabledTextColor: Colors.grey,
+            disabledBackgroundColor: Color.fromARGB(255, 221, 239, 255),
+            activeNavigatorColor: Colors.grey.shade800,
+            inactiveNavigatorColor: Colors.grey,
+            monthColor: Colors.grey.shade800,
+            onDateChange: (date) {
+              setState(() {
+                selectedDate = date;
+              });
+            },
+          )),
+          // Expanded(
+          //     flex: 1,
+          //     child: Text('12',
+          //         textAlign: TextAlign.center,
+          //         overflow: TextOverflow.ellipsis,
+          //         style: TextStyle(
+          //           color: Colors.grey.shade600,
+          //           fontSize: 19,
+          //           fontWeight: FontWeight.w400,
+          //         ))),
+          // Expanded(
+          //     flex: 2,
+          //     child: Container(
+          //         width: 80,
+          //         height: 40,
+          //         decoration: const BoxDecoration(
+          //             borderRadius: BorderRadius.all(Radius.circular(99)),
+          //             color: Color.fromARGB(255, 221, 239, 255),
+          //             boxShadow: [
+          //               // Bottom right
+          //               BoxShadow(
+          //                   color: Color.fromARGB(47, 0, 0, 0),
+          //                   blurRadius: 24,
+          //                   offset: Offset(5, 5),
+          //                   blurStyle: BlurStyle.normal,
+          //                   spreadRadius: 1),
+          //               // Top left
+          //               BoxShadow(
+          //                   color: Colors.white,
+          //                   blurRadius: 14,
+          //                   offset: Offset(-5, -5),
+          //                   blurStyle: BlurStyle.normal,
+          //                   spreadRadius: -1)
+          //             ]),
+          //         child: Align(
+          //             alignment: Alignment.center,
+          //             child: Text('Sunday, 13',
+          //                 textAlign: TextAlign.center,
+          //                 overflow: TextOverflow.ellipsis,
+          //                 style: TextStyle(
+          //                   color: Colors.grey.shade600,
+          //                   fontSize: 19,
+          //                   fontWeight: FontWeight.w400,
+          //                 ))))),
+          // Expanded(
+          //     flex: 1,
+          //     child: Text('14',
+          //         textAlign: TextAlign.center,
+          //         overflow: TextOverflow.ellipsis,
+          //         style: TextStyle(
+          //           color: Colors.grey.shade600,
+          //           fontSize: 19,
+          //           fontWeight: FontWeight.w400,
+          //         ))),
+          // Expanded(
+          //     flex: 1,
+          //     child: Text('15',
+          //         textAlign: TextAlign.center,
+          //         overflow: TextOverflow.ellipsis,
+          //         style: TextStyle(
+          //           color: Colors.grey.shade600,
+          //           fontSize: 19,
+          //           fontWeight: FontWeight.w400,
+          //         ))),
         ],
       ),
       // ----- end of weekdays section -----
