@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 // import 'package:horizontal_week_calendar/horizontal_week_calendar.dart';
 import 'package:intl/intl.dart';
 import 'calendar.dart';
+import 'package:percent_indicator/percent_indicator.dart';
 
 void main() {
   runApp(const MyApp());
@@ -130,74 +131,51 @@ class _MyHomePageState extends State<MyHomePage> {
               });
             },
           )),
-          // Expanded(
-          //     flex: 1,
-          //     child: Text('12',
-          //         textAlign: TextAlign.center,
-          //         overflow: TextOverflow.ellipsis,
-          //         style: TextStyle(
-          //           color: Colors.grey.shade600,
-          //           fontSize: 19,
-          //           fontWeight: FontWeight.w400,
-          //         ))),
-          // Expanded(
-          //     flex: 2,
-          //     child: Container(
-          //         width: 80,
-          //         height: 40,
-          //         decoration: const BoxDecoration(
-          //             borderRadius: BorderRadius.all(Radius.circular(99)),
-          //             color: Color.fromARGB(255, 221, 239, 255),
-          //             boxShadow: [
-          //               // Bottom right
-          //               BoxShadow(
-          //                   color: Color.fromARGB(47, 0, 0, 0),
-          //                   blurRadius: 24,
-          //                   offset: Offset(5, 5),
-          //                   blurStyle: BlurStyle.normal,
-          //                   spreadRadius: 1),
-          //               // Top left
-          //               BoxShadow(
-          //                   color: Colors.white,
-          //                   blurRadius: 14,
-          //                   offset: Offset(-5, -5),
-          //                   blurStyle: BlurStyle.normal,
-          //                   spreadRadius: -1)
-          //             ]),
-          //         child: Align(
-          //             alignment: Alignment.center,
-          //             child: Text('Sunday, 13',
-          //                 textAlign: TextAlign.center,
-          //                 overflow: TextOverflow.ellipsis,
-          //                 style: TextStyle(
-          //                   color: Colors.grey.shade600,
-          //                   fontSize: 19,
-          //                   fontWeight: FontWeight.w400,
-          //                 ))))),
-          // Expanded(
-          //     flex: 1,
-          //     child: Text('14',
-          //         textAlign: TextAlign.center,
-          //         overflow: TextOverflow.ellipsis,
-          //         style: TextStyle(
-          //           color: Colors.grey.shade600,
-          //           fontSize: 19,
-          //           fontWeight: FontWeight.w400,
-          //         ))),
-          // Expanded(
-          //     flex: 1,
-          //     child: Text('15',
-          //         textAlign: TextAlign.center,
-          //         overflow: TextOverflow.ellipsis,
-          //         style: TextStyle(
-          //           color: Colors.grey.shade600,
-          //           fontSize: 19,
-          //           fontWeight: FontWeight.w400,
-          //         ))),
         ],
       ),
       // ----- end of weekdays section -----
       const SizedBox(height: 80),
+
+      Row(children: <Widget>[
+        Container(
+            width: 200.0,
+            height: 200.0,
+            decoration: const BoxDecoration(
+                color: Color.fromARGB(255, 221, 239, 255),
+                shape: BoxShape.circle,
+                boxShadow: [
+                  // Bottom right
+                  BoxShadow(
+                      color: Color.fromARGB(47, 0, 0, 0),
+                      blurRadius: 24,
+                      offset: Offset(5, 5),
+                      blurStyle: BlurStyle.normal,
+                      spreadRadius: 1),
+                  // Top left
+                  BoxShadow(
+                      color: Colors.white,
+                      blurRadius: 14,
+                      offset: Offset(-5, -5),
+                      blurStyle: BlurStyle.normal,
+                      spreadRadius: -1)
+                ]),
+            child: CircularPercentIndicator(
+              radius: 80.0,
+              lineWidth: 22.0,
+              animation: true,
+              percent: 0.7,
+              center: const Text(
+                "70.0%",
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
+              ),
+              circularStrokeCap: CircularStrokeCap.round,
+              progressColor: const Color.fromARGB(255, 225, 136, 136),
+            )),
+      ]),
+      // ----- end of weekdays section -----
+    
+    
+      const SizedBox(height: 20),
       Row(
         children: [
           Align(
