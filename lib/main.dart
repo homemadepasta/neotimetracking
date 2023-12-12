@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
 // import 'package:horizontal_week_calendar/horizontal_week_calendar.dart';
 import 'package:intl/intl.dart';
-import 'calendar.dart';
+import 'components/calendar.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 
 void main() {
