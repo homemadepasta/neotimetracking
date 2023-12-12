@@ -279,15 +279,15 @@ class _HorizontalWeekCalendarState extends State<HorizontalWeekCalendar> {
               //   height: 12,
               // ),
               Container(
-                transform: Matrix4.translationValues(0.0, -25.0, 0.0),
+                transform: Matrix4.translationValues(0.0, -30.0, 0.0),
                 child: CarouselSlider(
                   carouselController: carouselController,
                   items: [
                     if (listOfWeeks.isNotEmpty)
                       for (int ind = 0; ind < listOfWeeks.length; ind++)
                         Container(
-                          padding: const EdgeInsets.only(top: 30, bottom: 30),
-                          height: boxHeight + 40,
+                          padding: const EdgeInsets.only(top: 35, bottom: 40),
+                          height: boxHeight + 55,
                           width: withOfScreen,
                           color: Colors.transparent,
                           child: Row(
@@ -429,7 +429,7 @@ class _HorizontalWeekCalendarState extends State<HorizontalWeekCalendar> {
                   ],
                   options: CarouselOptions(
                     scrollPhysics: const ClampingScrollPhysics(),
-                    height: boxHeight + 40,
+                    height: boxHeight + 55,
                     viewportFraction: 1,
                     enableInfiniteScroll: false,
                     reverse: true,
