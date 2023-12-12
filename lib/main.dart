@@ -173,8 +173,7 @@ class _MyHomePageState extends State<MyHomePage> {
             )),
       ]),
       // ----- end of weekdays section -----
-    
-    
+
       const SizedBox(height: 20),
       Row(
         children: [
