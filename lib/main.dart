@@ -207,10 +207,11 @@ class _MyHomePageState extends State<MyHomePage> {
       Row(
         children: [
           Padding(
-            padding: const EdgeInsets.all(20),
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
             child: Container(
-              width: 120,
-              height: 210,
+              padding: const EdgeInsets.all(10),
+              width: 135,
+              height: 180,
               decoration: const BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.circular(8)),
                   color: Color.fromARGB(255, 221, 239, 255),
@@ -230,6 +231,28 @@ class _MyHomePageState extends State<MyHomePage> {
                         blurStyle: BlurStyle.normal,
                         spreadRadius: -1)
                   ]),
+              child: Column(
+                children: [
+                  Text(
+                    'Lorem ipsum dolor',
+                    style: TextStyle(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 15,
+                        color: Colors.grey.shade700),
+                  ),
+                  const SizedBox(height: 10),
+                  Text(
+                    'Curabitur semper turpis eget tempor tempus. Nulla nec ligula eleifend, fermentum risus eget, luctus libero.',
+                    textAlign: TextAlign.left,
+                    maxLines: 2,
+                    style: TextStyle(
+                        overflow: TextOverflow.ellipsis,
+                        fontWeight: FontWeight.w400,
+                        fontSize: 12,
+                        color: Colors.grey.shade400),
+                  )
+                ],
+              ),
             ),
           )
         ],
